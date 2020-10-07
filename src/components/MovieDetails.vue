@@ -1,45 +1,54 @@
 <template>
   <div class="detail">
     <div class="poster">
-      <img alt="movie poster" :src="movie.posterUrl" />
+      <img alt="movie poster" :src="movie.poster_path" />
     </div>
     <div class="description">
       <div class="name">
-        <h2>{{ movie.name }}</h2>
-        <div class="rating">{{ movie.rating }}</div>
+        <h2>{{ movie.title }}</h2>
+        <div class="rating">{{ movie.vote_count | formatVote}}</div>
       </div>
-      <h3>{{ movie.secondName }}</h3>
+      <h3>{{ movie.tagline }}</h3>
       <div class="info">
-        <span class="date">{{ movie.year }}</span>
+        <span class="date">{{ movie.release_date }}</span>
         <span>{{ movie.length }}</span>
       </div>
       <div class="overview">
-        {{ movie.plot }}
+        {{ movie.overview }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "MovieDetail",
-  data: () => ({
-    movie: {
-      posterUrl: "/poster.jpg",
-      name: "Harry Potter",
-      secondName: "Harry Potter and the Deathly Hallows",
-      year: "2007",
-      plot:
-        "Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the " +
-        "seventh and final novel of the Harry Potter series. It was released on 21 July 2007 in the United Kingdom" +
-        " by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books. The novel" +
-        " chronicles the events directly following Harry Potter and the Half-Blood Prince (2005) and the final " +
-        "confrontation between the wizards Harry Potter and Lord Voldemort.",
-      rating: "4.8",
-      length: "143 min",
-      genre: "Comedy"
+  data: function() {
+    return {
+      movie: {}
     }
-  })
+  },
+  created: function() {
+    this.setMovie()
+  },
+  methods: {
+    setMovie: function() {
+      this.movie = this.getMovieById(this.$route.params.id)
+    }
+  },
+  computed: {
+    ...mapGetters(["getMovieById"]),
+  },
+  watch: {
+    "$route": "setMovie"
+  },
+  filters: {
+    formatVote: vote => {
+      return vote.toFixed(1);
+    }
+  }
 };
 </script>
 
