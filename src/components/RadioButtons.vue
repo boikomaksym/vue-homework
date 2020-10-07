@@ -1,23 +1,24 @@
 <template>
   <div class="form_toggle">
     <div class="form_toggle-item item-1">
+      <span>{{ radioButtonName }}</span>
       <input
         type="radio"
-        id="leftButton"
-        value="leftButtonValue"
-        v-model="picked"
+        :name="radioButtonName"
+        :id="leftButtonId"
+        :value="leftButtonValue"
         checked
       />
-      <label for="leftButton">{{ leftButtonValue }}</label>
+      <label :for="leftButtonId">{{ leftButtonValue }}</label>
     </div>
     <div class="form_toggle-item item-2">
       <input
         type="radio"
-        id="rightButton"
-        value="rightButtonValue"
-        v-model="picked"
+        :name="radioButtonName"
+        :id="rightButtonId"
+        :value="rightButtonValue"
       />
-      <label for="rightButton">{{ rightButtonValue }}</label>
+      <label :for="rightButtonId">{{ rightButtonValue }}</label>
     </div>
   </div>
 </template>
@@ -25,35 +26,42 @@
 <script>
 export default {
   name: "radioButtons",
-  data: () => {
-    return {
-      picked: "leftButtonValue"
-    };
-  },
   props: {
+    leftButtonId: {
+      type: String,
+      required: true
+    },
     leftButtonValue: {
       type: String,
-      required: true,
-      default: "left"
+      required: true
+    },
+    rightButtonId: {
+      type: String,
+      required: true
     },
     rightButtonValue: {
       type: String,
-      required: true,
-      default: "right"
+      required: true
     },
     radioButtonName: {
       type: String,
-      required: true,
-      default: "name"
+      required: true
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+span {
+  font-size: 20px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: white;
+  margin-right: 15px;
+}
 .form_toggle {
-  display: inline-block;
-  overflow: hidden;
+  width: auto;
+  display: flex;
+  margin: 50px 350px;
 }
 .form_toggle-item {
   float: left;
@@ -66,11 +74,7 @@ export default {
   display: inline-block;
   padding: 0px 15px;
   line-height: 34px;
-  border: 1px solid #999;
-  border-right: none;
-  cursor: pointer;
-  user-select: none;
-  background: #424242;
+  background: #6f6f6f;
   color: #ffffff;
   text-transform: uppercase;
 }

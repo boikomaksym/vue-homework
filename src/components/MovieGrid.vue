@@ -1,11 +1,6 @@
 <template>
   <div class="grid">
-    <movie-item
-      class="cell"
-      v-for="movie in movies"
-      :key="movie.id"
-      :movie="movie"
-    />
+    <movie-item v-for="movie in movies" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
@@ -20,11 +15,10 @@ export default {
     for (var i = 0; i < 9; i++) {
       movies.push({
         id: i,
-        posterUrl:
-          "https://images-na.ssl-images-amazon.com/images/I/41dBu4DkbVL._AC_.jpg",
-        name: "Kill Bill V.1",
-        year: "1994",
-        genre: "Thriller"
+        posterUrl: "/poster.jpg",
+        name: "Harry Potter",
+        year: "2007",
+        genre: "Fantasy"
       });
     }
     return {
@@ -36,8 +30,9 @@ export default {
 <style scoped>
 .grid {
   display: grid;
-  grid-gap: 1px;
+  grid-gap: 50px;
   grid-template-columns: repeat(3, 1fr);
+  padding: 5%;
 }
 
 div > div {

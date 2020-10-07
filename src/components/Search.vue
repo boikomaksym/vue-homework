@@ -1,12 +1,18 @@
 <template>
-  <div class="searchBar">
-    <h3>Find your movie</h3>
-    <div class="inputSearch">
-      <input placeholder="Quentin Tarantino" type="text" />
-      <button class="searchBtn">Search</button>
-    </div>
+  <div>
+    <h1>Find your movie</h1>
     <div>
-      <radio-buttons left-button-value="Title" right-button-value="Genre" radio-button-name="Search by">
+      <div class="search">
+        <input class="searchBox" placeholder="Quentin Tarantino" />
+        <button class="searchBtn">Search</button>
+      </div>
+      <radio-buttons
+        left-button-id="Title"
+        left-button-value="Title"
+        right-button-value="Genre"
+        right-button-id="Genre"
+        radio-button-name="Search by"
+      >
       </radio-buttons>
     </div>
   </div>
@@ -21,18 +27,42 @@ export default {
 };
 </script>
 <style>
-.inputSearch {
-  margin-bottom: 20px;
-  position: center;
+h1 {
+  width: auto;
+  font-size: 60px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: white;
+  margin-left: 350px;
+}
+body {
+  width: auto;
+  background: #1c1b1b;
+  font-family: Arial;
+}
+.search {
+  width: auto;
   display: flex;
+  margin-left: 350px;
+  margin-right: 350px;
+}
+.searchBox {
+  width: 70%;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #0a0a0a;
+  font-size: 20px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: white;
 }
 .searchBtn {
+  width: 30%;
+  height: 50px;
   background-color: #f65261;
-  width: 238px;
-  height: 60px;
-  font-family:Arial;
-  font-size:28px;
-  color:#ffffff;
-  text-transform:uppercase;
+  text-align: center;
+  color: white;
+  border-radius: 10px 10px 10px 10px;
+  font-size: 20px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 </style>
