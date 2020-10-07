@@ -7,17 +7,16 @@
         :name="radioButtonName"
         :id="leftButtonId"
         :value="leftButtonValue"
-        checked
-      />
+              :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
       <label :for="leftButtonId">{{ leftButtonValue }}</label>
     </div>
     <div class="form_toggle-item item-2">
       <input
-        type="radio"
+              type="radio"
         :name="radioButtonName"
         :id="rightButtonId"
         :value="rightButtonValue"
-      />
+              :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
       <label :for="rightButtonId">{{ rightButtonValue }}</label>
     </div>
   </div>

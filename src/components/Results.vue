@@ -4,10 +4,12 @@
     <radio-buttons
       class="buttons"
       left-button-id="ReleaseDate"
-      left-button-value="Release date"
+      left-button-value="release_date"
       right-button-id="Rating"
-      right-button-value="Rating"
+      right-button-value="vote_count"
       radio-button-name="Sort by"
+      v-model="sortValue"
+      @click="updateMovies"
     >
     </radio-buttons>
   </div>
@@ -15,11 +17,20 @@
 
 <script>
 import RadioButtons from "./RadioButtons";
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 export default {
   components: { RadioButtons },
   computed: {
-    ...mapGetters(["allMovies"])
+    ...mapGetters(["allMovies"]),
+    ...mapActions(["updateMovies"]),
+    sortValue: {
+      get: function () {
+        return this.$store.state.sort
+      },
+      set: function (value) {
+        this.$store.commit("setSort", value)
+      }
+    }
   }
 };
 </script>
