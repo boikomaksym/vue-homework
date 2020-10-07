@@ -1,6 +1,6 @@
 <template>
   <div class="aaa">
-    <div class="counter">{{ counter }} movie found</div>
+    <div class="counter">{{ allMovies.length }} movie found</div>
     <radio-buttons
       class="buttons"
       left-button-id="ReleaseDate"
@@ -15,12 +15,11 @@
 
 <script>
 import RadioButtons from "./RadioButtons";
+import {mapGetters} from "vuex";
 export default {
   components: { RadioButtons },
-  data() {
-    return {
-      counter: 9
-    };
+  computed: {
+    ...mapGetters(["allMovies"])
   }
 };
 </script>

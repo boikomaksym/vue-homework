@@ -1,30 +1,20 @@
 <template>
   <div class="grid">
-    <movie-item v-for="movie in movies" :key="movie.id" :movie="movie" />
+    <movie-item v-for="movie in allMovies" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script>
 import MovieItem from "./MovieItem";
 
+import {mapGetters} from "vuex";
+
 export default {
-  name: "MovieGrid",
-  components: { MovieItem },
-  data: () => {
-    const movies = [];
-    for (var i = 0; i < 9; i++) {
-      movies.push({
-        id: i,
-        posterUrl: "/poster.jpg",
-        name: "Harry Potter",
-        year: "2007",
-        genre: "Fantasy"
-      });
+    name: "MovieGrid",
+    components: { MovieItem },
+    computed: {
+    ...mapGetters(["allMovies"])
     }
-    return {
-      movies
-    };
-  }
 };
 </script>
 <style scoped>

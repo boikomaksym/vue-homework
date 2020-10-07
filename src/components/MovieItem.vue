@@ -1,18 +1,20 @@
 <template>
-  <router-link :to="'/movie/' + movie.id" class="movie-card-module__card">
-    <img alt="movie-poster" :src="movie.posterUrl" />
+  <div>
+  <router-link :to="'/movie/' + movie.id" >
+    <img alt="movie-poster" :src="movie.poster_path" />
     <div class="movie-card-module__footer">
       <ul>
         <li class="left">
-          {{ movie.name }}
+          {{ movie.title }}
         </li>
         <li class="right">
-          {{ movie.year }}
+          {{ movie.release_date }}
         </li>
       </ul>
-      <div class="genre">{{ movie.genre }}</div>
+      <div class="genre">{{ movie.genres[0] }}</div>
     </div>
   </router-link>
+  </div>
 </template>
 
 <script>
@@ -20,13 +22,10 @@ export default {
   name: "MovieItem",
   props: {
     movie: {
-      id: "id",
-      posterUrl: "https://yolo.lv/storage/2020_03_23/1584938046_1204/w500.jpg",
-      name: "name",
-      genre: "genre",
-      year: "2020"
+      type: Object,
+      required: true
     }
-  }
+  },
 };
 </script>
 <style>
