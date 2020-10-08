@@ -8,7 +8,7 @@
           v-model="searchText"
           placeholder="Quentin Tarantino"
         />
-        <button class="searchBtn" @click="updateMovies">Search</button>
+        <button class="searchBtn" @click="search">Search</button>
       </div>
       <radio-buttons
         left-button-id="Title"
@@ -25,7 +25,6 @@
 
 <script>
 import RadioButtons from "./RadioButtons";
-import { mapActions } from "vuex";
 
 export default {
   name: "SearchBar",
@@ -49,7 +48,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["updateMovies"])
+    search() {
+      this.$router.push({
+        name: "Search",
+        query: {
+          field: this.searchByType,
+          sort: this.$store.state.sort,
+          q: this.searchText
+        }
+      });
+    }
   }
 };
 </script>
