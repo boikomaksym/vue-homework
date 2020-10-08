@@ -7,16 +7,20 @@
         :name="radioButtonName"
         :id="leftButtonId"
         :value="leftButtonValue"
-              :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
+        :checked="value === leftButtonValue"
+        @change="filter"
+      />
       <label :for="leftButtonId">{{ leftButtonId }}</label>
     </div>
     <div class="form_toggle-item item-2">
       <input
-              type="radio"
+        type="radio"
         :name="radioButtonName"
         :id="rightButtonId"
         :value="rightButtonValue"
-              :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
+        :checked="value === rightButtonValue"
+        @change="filter"
+      />
       <label :for="rightButtonId">{{ rightButtonId }}</label>
     </div>
   </div>
@@ -49,6 +53,11 @@ export default {
     value: {
       type: String,
       required: false
+    }
+  },
+  methods: {
+    filter(event) {
+      this.$emit("input", event.target.value);
     }
   }
 };

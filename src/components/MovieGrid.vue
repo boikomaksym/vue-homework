@@ -10,11 +10,11 @@ import MovieItem from "./MovieItem";
 import { mapState } from "vuex";
 
 export default {
-    name: "MovieGrid",
-    components: { MovieItem },
-    computed: {
-    ...mapState({movies :"movies"})
-    }
+  name: "MovieGrid",
+  components: { MovieItem },
+  computed: {
+    ...mapState({ movies: "movies" })
+  }
 };
 </script>
 <style scoped>

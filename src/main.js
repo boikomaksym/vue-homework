@@ -5,9 +5,9 @@ import store from "./store";
 
 Vue.config.productionTip = false;
 
-import {formatDate} from "./filters/formatDate";
-import {formatVote} from "./filters/formatVote";
-import {directive} from "./plugins/directive";
+import { formatDate } from "./filters/formatDate";
+import { formatVote } from "./filters/formatVote";
+import { directive } from "./plugins/directive";
 
 Vue.filter("formatDate", formatDate);
 Vue.filter("formatVote", formatVote);
@@ -18,6 +18,6 @@ new Vue({
   store,
   render: h => h(App),
   created() {
-    this.$store.dispatch('populateMovies');
+    this.$store.dispatch("populateMovies");
   }
 }).$mount("#app");
