@@ -8,11 +8,11 @@
       </div>
       <radio-buttons
         left-button-id="Title"
-        left-button-value="Title"
-        right-button-value="Genre"
+        left-button-value="title"
+        right-button-value="genres"
         right-button-id="Genre"
         radio-button-name="Search by"
-        v-model="searchBy"
+        v-model="searchByType"
       >
       </radio-buttons>
     </div>
@@ -35,9 +35,9 @@ export default {
         this.$store.commit("setSearchText", value)
       }
     },
-    searchBy: {
+    searchByType: {
       get: function() {
-        return this.$store.state.searchBy
+        return this.$store.state.searchByType
       },
       set: function(value) {
         this.$store.commit("setSearchBy", value)
@@ -46,7 +46,8 @@ export default {
   },
   methods: {
     ...mapActions(["updateMovies"])
-  }};
+  }
+};
 </script>
 <style>
 h1 {

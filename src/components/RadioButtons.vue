@@ -8,7 +8,7 @@
         :id="leftButtonId"
         :value="leftButtonValue"
               :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
-      <label :for="leftButtonId">{{ leftButtonValue }}</label>
+      <label :for="leftButtonId">{{ leftButtonId }}</label>
     </div>
     <div class="form_toggle-item item-2">
       <input
@@ -17,7 +17,7 @@
         :id="rightButtonId"
         :value="rightButtonValue"
               :checked="value === rightButtonValue" @change="$emit('input', $event.target.value)"/>
-      <label :for="rightButtonId">{{ rightButtonValue }}</label>
+      <label :for="rightButtonId">{{ rightButtonId }}</label>
     </div>
   </div>
 </template>
@@ -45,6 +45,10 @@ export default {
     radioButtonName: {
       type: String,
       required: true
+    },
+    value: {
+      type: String,
+      required: false
     }
   }
 };

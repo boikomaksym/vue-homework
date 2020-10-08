@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="poster">
-      <img :data-url="movie.poster_path" :alt="movie.title" v-lazy-load-image />
+      <img alt="movie poster" :src="movie.poster_path" />
     </div>
     <div class="description">
       <div class="name">
@@ -22,20 +22,19 @@
 
 <script>
 import {mapGetters} from "vuex";
+import api from "../api/apiService"
 
 export default {
   name: "MovieDetail",
-  data: function() {
-    return {
-      movie: {}
-    }
+  props: {
+    movie: Object
   },
   created: function() {
     this.setMovie()
   },
   methods: {
-    setMovie: function() {
-      this.movie = this.getMovieById(this.$route.params.id)
+    setMovie: async function() {
+      this.movie = await api.getMovieById(this.$route.params.id)
     }
   },
   computed: {
