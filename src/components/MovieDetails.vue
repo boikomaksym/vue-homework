@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <div class="poster">
-      <img alt="movie poster" :src="movie.poster_path" />
+      <img :data-url="movie.poster_path" :alt="movie.title" v-lazy-load-image />
     </div>
     <div class="description">
       <div class="name">
@@ -10,7 +10,7 @@
       </div>
       <h3>{{ movie.tagline }}</h3>
       <div class="info">
-        <span class="date">{{ movie.release_date }}</span>
+        <span class="date">{{ movie.release_date | formatDate}}</span>
         <span>{{ movie.length }}</span>
       </div>
       <div class="overview">
@@ -43,11 +43,6 @@ export default {
   },
   watch: {
     "$route": "setMovie"
-  },
-  filters: {
-    formatVote: vote => {
-      return vote.toFixed(1);
-    }
   }
 };
 </script>
