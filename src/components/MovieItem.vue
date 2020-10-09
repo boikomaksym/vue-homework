@@ -1,7 +1,7 @@
 <template>
   <div>
   <router-link :to="'/movie/' + movie.id" >
-    <img alt="movie-poster" :src="movie.poster_path" />
+    <img :data-url="movie.poster_path" :alt="movie.title" v-lazy-load-image />
     <div class="movie-card-module__footer">
       <ul>
         <li class="left">
