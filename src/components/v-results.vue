@@ -1,7 +1,7 @@
 <template>
   <div class="aaa">
-    <div class="counter">{{ allMovies.length }} movie found</div>
-    <radio-buttons
+    <div class="counter">{{ getMovieCount }} movie found</div>
+    <v-radio-buttons
       class="buttons"
       left-button-id="ReleaseDate"
       left-button-value="release_date"
@@ -11,24 +11,24 @@
       v-model="sortValue"
       @click="updateMovies"
     >
-    </radio-buttons>
+    </v-radio-buttons>
   </div>
 </template>
 
 <script>
-import RadioButtons from "./RadioButtons";
+import vRadioButtons from "./v-radio-buttons";
 import { mapActions, mapGetters } from "vuex";
 export default {
-  components: { RadioButtons },
+  components: { vRadioButtons },
   computed: {
-    ...mapGetters(["allMovies"]),
+    ...mapGetters(["getMovieCount"]),
     ...mapActions(["updateMovies"]),
     sortValue: {
       get: function() {
-        return this.$store.state.sort;
+        return this.$store.state.sort_option;
       },
       set: function(value) {
-        this.$store.commit("setSort", value);
+        this.$store.commit("SET_SORT_OPTION", value);
       }
     }
   }

@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import SearchView from "../views/MainView";
+import SearchView from "../views/SearchPage";
 import MovieDetailView from "../views/MovieDetailsPage";
-import NotFound from "../views/NotFoundComponent";
+import NotFound from "../views/NotFoundPage";
 
 Vue.use(VueRouter);
 

@@ -1,4 +1,4 @@
-import MovieGrid from "../components/MovieGrid";
+import MovieGrid from "../components/v-movie-grid";
 
 export default {
   component: MovieGrid,

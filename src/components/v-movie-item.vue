@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "MovieItem",
+  name: "v-movie-item",
   props: {
     movie: {
       type: Object,

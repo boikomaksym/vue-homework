@@ -10,7 +10,7 @@
         />
         <button class="searchBtn" @click="search">Search</button>
       </div>
-      <radio-buttons
+      <v-radio-buttons
         left-button-id="Title"
         left-button-value="title"
         right-button-value="genres"
@@ -18,32 +18,32 @@
         radio-button-name="Search by"
         v-model="searchByType"
       >
-      </radio-buttons>
+      </v-radio-buttons>
     </div>
   </div>
 </template>
 
 <script>
-import RadioButtons from "./RadioButtons";
+import vRadioButtons from "./v-radio-buttons";
 
 export default {
   name: "SearchBar",
-  components: { RadioButtons },
+  components: { vRadioButtons },
   computed: {
     searchText: {
       get: function() {
-        return this.$store.state.searchText;
+        return this.$store.state.search_text_value;
       },
       set: function(value) {
-        this.$store.commit("setSearchText", value);
+        this.$store.commit("SET_SEARCH_TEXT_VALUE", value);
       }
     },
     searchByType: {
       get: function() {
-        return this.$store.state.searchByType;
+        return this.$store.state.search_by_field;
       },
       set: function(value) {
-        this.$store.commit("setSearchBy", value);
+        this.$store.commit("SET_SEARCH_BY_FIELD", value);
       }
     }
   },
@@ -53,7 +53,7 @@ export default {
         name: "Search",
         query: {
           field: this.searchByType,
-          sort: this.$store.state.sort,
+          sort: this.$store.state.sort_option,
           q: this.searchText
         }
       });

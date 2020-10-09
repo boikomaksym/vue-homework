@@ -1,16 +1,16 @@
 <template>
   <div>
-    <header-component :show-home-button="true"> </header-component>
+    <v-header :show-home-button="true"> </v-header>
     <h1>404 Page not found</h1>
   </div>
 </template>
 <script>
-import HeaderComponent from "../components/HeaderComponent";
+import vHeader from "../components/v-header";
 
 export default {
-  name: "NotFound",
+  name: "NotFoundComponent",
   components: {
-    HeaderComponent
+    vHeader
   }
 };
 </script>
