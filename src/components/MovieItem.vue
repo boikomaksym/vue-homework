@@ -11,7 +11,7 @@
           {{ movie.release_date }}
         </li>
       </ul>
-      <div class="genre">{{ movie.genres[0] }}</div>
+      <div class="genre">{{ movie.genres|formatArrayToString }}</div>
     </div>
   </router-link>
   </div>
@@ -26,6 +26,11 @@ export default {
       required: true
     }
   },
+  filters: {
+    formatArrayToString: genres => {
+      return genres.join(', ');
+    }
+  }
 };
 </script>
 <style>

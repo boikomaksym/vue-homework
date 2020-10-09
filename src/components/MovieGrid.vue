@@ -13,7 +13,7 @@ export default {
     name: "MovieGrid",
     components: { MovieItem },
     computed: {
-    ...mapGetters(["allMovies"])
+      ...mapGetters(["allMovies"])
     }
 };
 </script>
