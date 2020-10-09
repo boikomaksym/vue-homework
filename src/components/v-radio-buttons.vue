@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "radioButtons",
+  name: "v-radio-buttons",
   props: {
     leftButtonId: {
       type: String,

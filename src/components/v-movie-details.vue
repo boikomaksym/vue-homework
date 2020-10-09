@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import api from "../api/apiService";
+import apiService from "../api/apiService";
 
 export default {
-  name: "MovieDetail",
+  name: "v-movie-details",
   props: {
     movie: Object
   },
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     setMovie: async function() {
-      this.movie = await api.getMovieById(this.$route.params.id);
+      this.movie = await apiService.getMovieById(this.$route.params.id);
     }
   },
   watch: {
@@ -67,6 +67,11 @@ h3 {
   font-size: 30px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.overview {
+  font-size: 25px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .date {

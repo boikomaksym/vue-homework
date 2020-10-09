@@ -1,11 +1,11 @@
-import Results from "../components/Results";
+import vResults from "../components/v-results";
 
 export default {
-  component: Results,
+  component: vResults,
   title: "Results"
 };
 
 export const results = () => ({
-  components: { Results },
+  components: { vResults },
   template: "<results/>"
 });

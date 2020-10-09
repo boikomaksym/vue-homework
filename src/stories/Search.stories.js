@@ -1,4 +1,4 @@
-import SearchBar from "../components/Search";
+import SearchBar from "../components/v-search";
 
 export default {
   component: SearchBar,
