@@ -14,8 +14,7 @@ const routes = [
   {
     path: "/movie/:id",
     name: "Movie detail",
-    component: MovieDetailView,
-    props: true
+    component: MovieDetailView
   }
 ];
 

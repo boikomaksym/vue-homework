@@ -17,18 +17,18 @@
 
 <script>
 import RadioButtons from "./RadioButtons";
-import {mapActions, mapGetters} from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   components: { RadioButtons },
   computed: {
     ...mapGetters(["allMovies"]),
     ...mapActions(["updateMovies"]),
     sortValue: {
-      get: function () {
-        return this.$store.state.sort
+      get: function() {
+        return this.$store.state.sort;
       },
-      set: function (value) {
-        this.$store.commit("setSort", value)
+      set: function(value) {
+        this.$store.commit("setSort", value);
       }
     }
   }

@@ -1,20 +1,20 @@
 <template>
   <div class="grid">
-    <movie-item v-for="movie in allMovies" :key="movie.id" :movie="movie" />
+    <movie-item v-for="movie in movies" :key="movie.id" :movie="movie" />
   </div>
 </template>
 
 <script>
 import MovieItem from "./MovieItem";
 
-import {mapGetters} from "vuex";
+import { mapState } from "vuex";
 
 export default {
-    name: "MovieGrid",
-    components: { MovieItem },
-    computed: {
-      ...mapGetters(["allMovies"])
-    }
+  name: "MovieGrid",
+  components: { MovieItem },
+  computed: {
+    ...mapState({ movies: "movies" })
+  }
 };
 </script>
 <style scoped>

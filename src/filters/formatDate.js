@@ -1,3 +1,3 @@
 export function formatDate(value) {
-    return new Date(value).getFullYear()
+  return new Date(value).getFullYear();
 }

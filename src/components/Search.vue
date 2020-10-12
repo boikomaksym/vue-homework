@@ -3,16 +3,20 @@
     <h1>Find your movie</h1>
     <div>
       <div class="search">
-        <input class="searchBox" v-model="searchText" placeholder="Quentin Tarantino" />
-        <button class="searchBtn" @click="updateMovies" >Search</button>
+        <input
+          class="searchBox"
+          v-model="searchText"
+          placeholder="Quentin Tarantino"
+        />
+        <button class="searchBtn" @click="updateMovies">Search</button>
       </div>
       <radio-buttons
         left-button-id="Title"
-        left-button-value="Title"
-        right-button-value="Genre"
+        left-button-value="title"
+        right-button-value="genres"
         right-button-id="Genre"
         radio-button-name="Search by"
-        v-model="searchBy"
+        v-model="searchByType"
       >
       </radio-buttons>
     </div>
@@ -21,7 +25,7 @@
 
 <script>
 import RadioButtons from "./RadioButtons";
-import {mapActions} from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "SearchBar",
@@ -29,24 +33,25 @@ export default {
   computed: {
     searchText: {
       get: function() {
-        return this.$store.state.searchText
+        return this.$store.state.searchText;
       },
       set: function(value) {
-        this.$store.commit("setSearchText", value)
+        this.$store.commit("setSearchText", value);
       }
     },
-    searchBy: {
+    searchByType: {
       get: function() {
-        return this.$store.state.searchBy
+        return this.$store.state.searchByType;
       },
       set: function(value) {
-        this.$store.commit("setSearchBy", value)
+        this.$store.commit("setSearchBy", value);
       }
     }
   },
   methods: {
     ...mapActions(["updateMovies"])
-  }};
+  }
+};
 </script>
 <style>
 h1 {

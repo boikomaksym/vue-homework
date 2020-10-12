@@ -1,19 +1,19 @@
 <template>
   <div>
-  <router-link :to="'/movie/' + movie.id" >
-    <img :data-url="movie.poster_path" :alt="movie.title" v-lazy-load-image />
-    <div class="movie-card-module__footer">
-      <ul>
-        <li class="left">
-          {{ movie.title }}
-        </li>
-        <li class="right">
-          {{ movie.release_date }}
-        </li>
-      </ul>
-      <div class="genre">{{ movie.genres|formatArrayToString }}</div>
-    </div>
-  </router-link>
+    <router-link :to="'/movie/' + movie.id">
+      <img :data-url="movie.poster_path" :alt="movie.title" v-lazy-load-image />
+      <div class="movie-card-module__footer">
+        <ul>
+          <li class="left">
+            {{ movie.title }}
+          </li>
+          <li class="right">
+            {{ movie.release_date }}
+          </li>
+        </ul>
+        <div class="genre">{{ movie.genres | formatArrayToString }}</div>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   },
   filters: {
     formatArrayToString: genres => {
-      return genres.join(', ');
+      return genres.join(", ");
     }
   }
 };
