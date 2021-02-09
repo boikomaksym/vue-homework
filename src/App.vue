@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <router-view />
-    <footer-component />
+    <v-footer />
   </div>
 </template>
 
 <script>
-import FooterComponent from "@/components/FooterComponent";
+import vFooter from "../src/components/v-footer";
 
 export default {
   name: "App",
   components: {
-    FooterComponent
+    vFooter
   }
 };
 </script>

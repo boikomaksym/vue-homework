@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-header :show-home-button="true">
-      <v-movie-detail />
+    <v-header>
+      <v-search />
     </v-header>
     <v-results />
     <v-movie-grid></v-movie-grid>
@@ -11,16 +11,16 @@
 <script>
 import vResults from "../components/v-results";
 import vHeader from "../components/v-header";
+import vSearch from "../components/v-search";
 import vMovieGrid from "../components/v-movie-grid";
-import vMovieDetail from "../components/v-movie-details";
 
 export default {
-  name: "MovieDetailsPage",
+  name: "MainView",
   components: {
     vResults,
     vHeader,
-    vMovieGrid,
-    vMovieDetail
+    vSearch,
+    vMovieGrid
   }
 };
 </script>

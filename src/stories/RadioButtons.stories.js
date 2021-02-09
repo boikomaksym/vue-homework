@@ -1,4 +1,4 @@
-import RadioButtons from "../components/RadioButtons";
+import RadioButtons from "../components/v-radio-buttons";
 
 export default {
   component: RadioButtons,

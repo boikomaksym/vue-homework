@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "Header",
+  name: "v-header",
   props: {
     showHomeButton: Boolean
   }

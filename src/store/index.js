@@ -6,42 +6,42 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   actions: {
     populateMovies: async ({ commit }) => {
-      let newVar = await apiService.getMovies();
-      commit("setMovies", newVar);
+      let movies = await apiService.getMovies();
+      commit("SET_MOVIES_ARRAY", movies);
     },
     updateMovies: async ({ commit, state }) => {
       const filteredMovies = await apiService.getMovies({
-        sortBy: state.sort,
-        searchBy: state.searchByType,
-        search: state.searchText,
+        sortBy: state.sort_option,
+        searchBy: state.search_by_field,
+        search: state.search_text_value,
         sortOrder: "desc"
       });
-      commit("setMovies", filteredMovies);
+      commit("SET_MOVIES_ARRAY", filteredMovies);
     }
   },
   mutations: {
-    setSearchText: (state, value) => {
-      state.searchText = value;
+    SET_SEARCH_TEXT_VALUE: (state, value) => {
+      state.search_text_value = value;
     },
-    setSearchBy: (state, value) => {
-      state.searchByType = value;
+    SET_SEARCH_BY_FIELD: (state, value) => {
+      state.search_by_field = value;
     },
-    setMovies: (state, value) => {
-      state.movies = value;
+    SET_MOVIES_ARRAY: (state, value) => {
+      state.movies_array = value;
     },
-    setSort: (state, value) => {
-      state.sort = value;
+    SET_SORT_OPTION: (state, value) => {
+      state.sort_option = value;
     }
   },
   state: {
-    movies: [],
-    searchText: "",
-    searchByType: "title",
-    sort: "release_date"
+    movies_array: [],
+    search_text_value: "",
+    search_by_field: "title",
+    sort_option: "release_date"
   },
   getters: {
-    allMovies(state) {
-      return state.movies;
+    getMovieCount(state) {
+      return state.movies_array.length;
     }
   }
 });

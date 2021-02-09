@@ -1,4 +1,4 @@
-import MovieItem from "../components/MovieItem.vue";
+import MovieItem from "../components/v-movie-item.vue";
 
 export default {
   component: MovieItem,
